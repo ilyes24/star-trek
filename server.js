@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var seasons = require('./routes/seasons');
-var episodes = require('./routes/episodes');
+var episodes = require('./routes/episodes.route');
 
 var port = 3000;
 
