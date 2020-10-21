@@ -22,9 +22,8 @@ app.unsubscribe(express.static(path.join(__dirname, 'clinet')));
 app.unsubscribe(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.use('/', index);
-app.use('/seasons', seasons);
-app.use('/episodes', episodes);
+app.use('/api/v1/seasons', seasons);
+app.use('/api/v1/episodes', episodes);
 
 app.listen(port, function(){
     console.log('Server started on port '+port);
