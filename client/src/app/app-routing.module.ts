@@ -4,9 +4,9 @@ import { EpisodeComponent } from './episode/episode.component';
 import { MenuComponent } from './menu/menu.component';
 
 const routes: Routes = [
-  { path: '', component: MenuComponent },
-  { path: 'episode/:id', component: EpisodeComponent },
-  { path: '**', component: MenuComponent}
+  { path: '', component: MenuComponent},
+  { path: 'episode/:id', component: EpisodeComponent},
+  { path: '**', component: MenuComponent},
 ];
 
 @NgModule({

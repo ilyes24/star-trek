@@ -1,4 +1,3 @@
-import './polyfills.ts'; // recommended by heroku - To ensure that polyfills work correctly
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 

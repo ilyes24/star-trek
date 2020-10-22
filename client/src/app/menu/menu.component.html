@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <form class="col-lg-4" [formGroup]="episodesGroup">
+      <select formControlName="season" (change)="onChange($event)" class="form-control">
+        <option [ngValue]="null" disabled>Select Season</option>
+        <option *ngFor="let season of episodes" [ngValue]="season.seasonNumber">{{ season.seasonNumber }}</option>
+      </select>
+    </form>
+  </div>
+  <div class="row">
+    <div class="col-lg-2">
+      <b>Title</b>
+    </div>
+    <div class="col-lg-2">
+      <b>Action</b>
+    </div>
+  </div>
+  <div class="row" *ngFor="let episode of episodesList">
+    <div class="col-lg-2">
+      {{ episode.episodeTitle }}
+    </div>
+    <div class="col-lg-2">
+      <a [routerLink]="['/episode/',episode.episodeUid]">View</a>
+    </div>
+  </div>
+</div>
+
