@@ -9,12 +9,13 @@ import { EpisodeService } from '../episode.service';
 })
 export class MenuComponent implements OnInit {
 
-  episodes : any[] = []
-  episodesGroup:FormGroup;
-  episodesList : any[] = [];
-  season:any;
+  episodes: any[] = [];
+  episodesGroup: FormGroup;
+  episodesList: any[] = [];
+  season: any;
+  seasonSelected = false;
 
-  constructor(private episodeService: EpisodeService, private fb:FormBuilder) { }
+  constructor(private episodeService: EpisodeService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.episodesGroup = this.fb.group({
@@ -24,13 +25,13 @@ export class MenuComponent implements OnInit {
       data => {
         this.episodes = data;
       }
-    )
+    );
   }
 
-  onChange(newValue){
-    console.log(newValue);
+  onChange(): void {
+    this.seasonSelected = true;
     this.season = this.episodesGroup.value.season;
-    this.episodesList = this.episodes.filter(e => e.seasonNumber == this.episodesGroup.value.season)[0].episodes;
+    this.episodesList = this.episodes.filter(e => e.seasonNumber === this.episodesGroup.value.season)[0].episodes;
   }
 
 }

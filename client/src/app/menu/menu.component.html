@@ -1,26 +1,18 @@
-<div class="container">
-  <div class="row">
-    <form class="col-lg-4" [formGroup]="episodesGroup">
-      <select formControlName="season" (change)="onChange($event)" class="form-control">
+<div class="menu-container">
+  <h3 class="title">Select from here your preffered season from StarTrek</h3>
+  <div class="select-container">
+    <form [formGroup]="episodesGroup">
+      <select formControlName="season" (change)="onChange()" class="form-control">
         <option [ngValue]="null" disabled>Select Season</option>
-        <option *ngFor="let season of episodes" [ngValue]="season.seasonNumber">{{ season.seasonNumber }}</option>
+        <option *ngFor="let season of episodes" [ngValue]="season.seasonNumber">Season {{ season.seasonNumber }}</option>
       </select>
     </form>
   </div>
-  <div class="row">
-    <div class="col-lg-2">
-      <b>Title</b>
-    </div>
-    <div class="col-lg-2">
-      <b>Action</b>
-    </div>
-  </div>
-  <div class="row" *ngFor="let episode of episodesList">
-    <div class="col-lg-2">
-      {{ episode.episodeTitle }}
-    </div>
-    <div class="col-lg-2">
-      <a [routerLink]="['/episode/',episode.episodeUid]">View</a>
+  <div *ngIf="seasonSelected" class="episodes-container">
+    <h5 class="title">Episodes Titles</h5>
+
+    <div class="episodes-container row" *ngFor="let episode of episodesList">
+      <a [routerLink]="['/episode/',episode.episodeUid]">{{ episode.episodeTitle }}</a>
     </div>
   </div>
 </div>

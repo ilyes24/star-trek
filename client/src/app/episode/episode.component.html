@@ -1,39 +1,39 @@
-<div class="container">
-    <ng-container *ngIf="episode$ | async; else loading; let e;">
-      <div class="row">
-        <div class="col-lg-2">
-          <b>Id: </b>
-        </div>
-        <div class="col-lg-2">
-          {{ e.episodeUid }}
-        </div>
+<div class="episode-container">
+  <div class="episode-info" *ngIf="episode$ | async; else loading; let e;">
+    <div class="row">
+      <div class="col-6">
+        <b>Id: </b>
       </div>
-      <div class="row">
-        <div class="col-lg-2">
-          <b>Title: </b>
-        </div>
-        <div class="col-lg-2">
-          {{ e.episodeTitle }}
-        </div>
+      <div class="col-6">
+        {{ e.episodeUid }}
       </div>
-      <div class="row">
-        <div class="col-lg-2">
-          <b>Number: </b>
-        </div>
-        <div class="col-lg-2">
-          {{ e.episodeNumber }}
-        </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <b>Title: </b>
       </div>
-      <div class="row">
-        <div class="col-lg-2">
-          <b>Production Number: </b>
-        </div>
-        <div class="col-lg-2">
-          {{ e.episodeSerialNumber }}
-        </div>
+      <div class="col-6">
+        {{ e.episodeTitle }}
       </div>
-    </ng-container>
-    <ng-template #loading>
-      <div class="row"><div class="col-lg-2"><b>Loading ...</b></div></div>
-    </ng-template>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <b>Number: </b>
+      </div>
+      <div class="col-6">
+        {{ e.episodeNumber }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <b>Production Number: </b>
+      </div>
+      <div class="col-6">
+        {{ e.episodeSerialNumber }}
+      </div>
+    </div>
+  </div>
+  <ng-template #loading>
+    <div class="row"><div class="col-2"><b>Loading ...</b></div></div>
+  </ng-template>
 </div>
